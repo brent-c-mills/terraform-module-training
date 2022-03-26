@@ -5,14 +5,6 @@ variable "instance_count" {
   default = 1
 }
 
-variable "gcp_project" {
-  type = string
-}
-
-variable "gcp_creds_file" {
-  type = string
-}
-
 variable "gcp_region" {
   type = string
 }
