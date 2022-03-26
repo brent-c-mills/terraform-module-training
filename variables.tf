@@ -1,12 +1,16 @@
 # Variables used for the Terraform project
 
+variable "instance_count" {
+  type = number
+  default = 1
+}
+
 variable "gcp_project" {
   type = string
 }
 
 variable "gcp_creds_file" {
   type = string
-  default = "GCP_CREDENTIALS.json"
 }
 
 variable "gcp_region" {

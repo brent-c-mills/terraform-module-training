@@ -7,9 +7,10 @@ resource "random_id" "instance_id" {
 
 # Generate a compute engine instance
 resource "google_compute_instance" "default_instance" {
-  name         = "${var.compute_name_stem}-${random_id.instance_id.hex}"
-  machine_type = "${var.compute_type}"
-  zone         = "${var.gcp_zone}"
+  count        = var.instance_count
+  name         = "${var.compute_name_stem}-${count.index}"
+  machine_type = var.compute_type
+  zone         = var.gcp_zone
 
   boot_disk {
     initialize_params {
