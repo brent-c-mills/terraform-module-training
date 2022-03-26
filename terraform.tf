@@ -1,7 +1,9 @@
 #Terraform provider declarations
 
-provider "google" {
-  credentials = file("${var.gcp_creds_file}")
-  project     = "${var.gcp_project}"
-  region      = "${var.gcp_region}"
+terraform {
+  required_version = "~>1.1.7"
+  required_providers {
+    google = "~>4.15.0"
+    random = "~>3.1.2"
+  }
 }
