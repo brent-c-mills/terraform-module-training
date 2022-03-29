@@ -8,7 +8,7 @@ resource "random_id" "instance_id" {
 # Generate a compute engine instance
 resource "google_compute_instance" "default_instance" {
   count        = var.instance_count
-  name         = "${var.compute_name_stem}-${count.index}"
+  name         = "${var.compute_name_stem}-${count.index+1}"
   machine_type = var.compute_type
   zone         = var.gcp_zone
 
@@ -20,6 +20,7 @@ resource "google_compute_instance" "default_instance" {
 
   network_interface {
     network = "default"
-  }
+    access_config {}
+}
 
 }
